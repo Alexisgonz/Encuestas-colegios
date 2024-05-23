@@ -17,6 +17,7 @@ interface LayoutState {
     configSidebarVisible: boolean;
     staticMenuMobileActive: boolean;
     menuHoverActive: boolean;
+    rightMenuActive: boolean;
 }
 
 @Injectable({
@@ -41,6 +42,7 @@ export class LayoutService {
         configSidebarVisible: false,
         staticMenuMobileActive: false,
         menuHoverActive: false,
+        rightMenuActive:false
     };
 
     private configUpdate = new Subject<AppConfig>();
@@ -116,6 +118,14 @@ export class LayoutService {
     onConfigUpdate() {
         this._config = { ...this.config() };
         this.configUpdate.next(this.config());
+    }
+
+    isRighMenuActive(): boolean {
+        return this.state.rightMenuActive;
+    }
+
+    openRightSidebar(): void {
+        this.state.rightMenuActive = true
     }
 
     changeTheme() {
