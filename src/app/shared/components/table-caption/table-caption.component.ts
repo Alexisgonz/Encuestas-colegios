@@ -10,7 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { RadioButtonModule } from 'primeng/radiobutton';
 
 @Component({
-    selector: 'colegios-table-caption',
+    selector: 'n-table-caption',
     standalone: true,
     imports: [CommonModule, InputTextModule, RadioButtonModule],
     template: `<div
@@ -42,7 +42,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     </div>`,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class colegiosTableCaptionComponent {
+export class ColegiosTableCaptionComponent {
     @Input() btnExport = true;
     @Output() btnClick = new EventEmitter<Event>();
     @Output() inputChange = new EventEmitter<boolean>();

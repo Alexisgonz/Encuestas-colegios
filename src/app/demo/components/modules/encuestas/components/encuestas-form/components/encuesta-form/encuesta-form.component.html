@@ -1,20 +1,84 @@
-<div class="py-24 bg-white sm:py-32">
-    <div class="grid px-6 mx-auto max-w-7xl gap-x-8 gap-y-20 lg:px-8 xl:grid-cols-3">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Libero fames augue nisl porttitor nisi, quis. Id ac elit odio vitae elementum enim vitae ullamcorper suspendisse.</p>
-      </div>
-      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-        <li>
-          <div class="flex items-center gap-x-6">
-            <img class="w-16 h-16 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+<div class="container">
+  <div class="flex">
+    <div class="w-4/5 p-3 pb-8 m-2 card">
+      <form
+        [formGroup]="formEncuesta"
+        class="grid gap-2"
+      >
+        <div class="flex w-full gap-4">
+          <div class="basis-1/2">
             <div>
-              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
-              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+              <label
+                for="nombre"
+                class="font-medium"
+                >NOMBRE</label
+              >
+            </div>
+            <input
+              formControlName="nombre"
+              type="text"
+              class="flex-1 w-4/5"
+              pInputText
+              id="nit"
+              autofocus
+            />
+            <div>
+              <small
+                *ngIf="
+                  formEncuesta.get('nombre')?.touched &&
+                  formEncuesta.get('nombre')?.hasError('required')
+                "
+                class="text-red-500"
+                >El nombre es requerida.</small
+              >
             </div>
           </div>
-        </li>
-  
-        <!-- More people... -->
-      </ul>
+          <div class="basis-1/2">
+            <div>
+              <label
+                for="descripcion"
+                class="font-medium"
+                >DESCRIPCIÓN<em class="text-red-500">*</em></label
+              >
+            </div>
+            <input
+              formControlName="nombre"
+              type="text"
+              class="flex-1 w-4/5"
+              pInputText
+              id="nombre"
+              autofocus
+            />
+          </div>
+        </div>
+        <div class="flex w-full gap-4 mt-2">
+          <div class="basis-1/2">
+            <div>
+              <label
+                for="email"
+                class="font-medium"
+                >ESTADO DE LA ENCUESTA</label
+              >
+            </div>
+            <input
+              formControlName="estado"
+              type="text"
+              class="flex-1 w-4/5"
+              pInputText
+              id="estado"
+              autofocus
+            />
+          </div>
+        </div>
+        
+      </form>
+      <div class="mt-8 mr-16">
+        <app-form-buttons-submit
+          (cancel)="onCancel()"
+          (submit)="onSubmit()"
+        >
+        </app-form-buttons-submit>
+      </div>
     </div>
+  </div>
+</div>

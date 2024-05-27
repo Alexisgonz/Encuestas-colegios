@@ -9,6 +9,7 @@
 
 $gutter: 1rem; //for primeflex grid system
 @import "assets/layout/styles/layout/layout.scss";
+@import "assets/layout/styles/theme/theme-light//indigo/theme.scss";
 
 /* PrimeNG */
 @import "../node_modules/primeng/resources/primeng.min.css";
@@ -21,5 +22,29 @@ $gutter: 1rem; //for primeflex grid system
 @import "assets/demo/styles/flags/flags.css";
 @import "assets/demo/styles/badges.scss";
 @import "assets/demo/styles/code.scss";
+
+
+.p-button.options-menu {
+    height: 1.8em !important;
+    width: 1.8em !important;
+    padding: 0.5em !important;
+  }
+
+
+  .p-menuitem {
+    &.danger-text {
+      background-color: rgba($color: $errorColor, $alpha: 0.02);
+      .p-menuitem-text,
+      .p-menuitem-icon {
+        color: $errorColor !important;
+      }
+  
+      .p-menuitem-link {
+        &:hover {
+          background-color: rgba($color: $errorColor, $alpha: 0.04);
+        }
+      }
+    }
+  }
 
 

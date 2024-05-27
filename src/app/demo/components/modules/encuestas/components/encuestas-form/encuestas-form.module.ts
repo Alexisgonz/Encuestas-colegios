@@ -5,9 +5,14 @@ import { EncuestaFormComponent } from './components/encuesta-form/encuesta-form.
 import { CardHeadListComponent } from 'src/app/shared/components/card-head-list/card-head-list.component';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { ReactiveFormsModule } from '@angular/forms';
-import { colegiosTableCaptionComponent } from 'src/app/shared/components/table-caption/table-caption.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EncuestasListComponent } from './components/encuestas-list/encuestas-list.component';
+import { RoundButtonMenuComponent } from 'src/app/shared/components/round-button-menu/round-button-menu.component';
+import { ColegiosTableCaptionComponent } from 'src/app/shared/components/table-caption/table-caption.component';
+import { MenuModule } from 'primeng/menu';
+import { FormButtonsSubmitComponent } from 'src/app/shared/components/form-buttons-submit/form-buttons-submit.component';
+import { DialogService } from 'primeng/dynamicdialog';
+import { InputTextModule } from 'primeng/inputtext';
 
 const routes: Routes = [
     {
@@ -31,7 +36,13 @@ const routes: Routes = [
         ButtonModule,
         TableModule,
         ReactiveFormsModule,
-        colegiosTableCaptionComponent,
+        ColegiosTableCaptionComponent,
+        RoundButtonMenuComponent,
+        MenuModule,
+        FormButtonsSubmitComponent,
+        InputTextModule,
+        FormsModule,
     ],
+    providers: [DialogService],
 })
 export class EncuestasFormModule {}

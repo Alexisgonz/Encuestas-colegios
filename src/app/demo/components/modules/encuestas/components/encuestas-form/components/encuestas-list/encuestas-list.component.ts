@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { Table } from 'primeng/table';
 import { Encuestas } from 'src/app/shared/interfaces/encuestas.interface';
 import { EncuestasService } from '../../../../service/encuestas.service';
+import { MenuItem } from 'primeng/api';
+import { Menu } from 'primeng/menu';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { EncuestaFormComponent } from '../encuesta-form/encuesta-form.component';
 
 @Component({
     selector: 'app-encuestas-list',
@@ -11,10 +15,15 @@ import { EncuestasService } from '../../../../service/encuestas.service';
 export class EncuestasListComponent implements OnInit {
     @ViewChild('dt', { static: true }) dt!: Table;
     encuestas: Encuestas[] = [];
+    menuOptions: MenuItem[] = [];
+    selectedRew!: Encuestas | undefined
+    dialogRef: DynamicDialogRef | undefined;
+    @ViewChild('menu', { static: true}) menu!: Menu;
 
     constructor(
         private router: Router,
-        private encuestasService: EncuestasService
+        private encuestasService: EncuestasService,
+        private dialogService: DialogService,
     ) {}
 
     ngOnInit(): void {
@@ -24,7 +33,12 @@ export class EncuestasListComponent implements OnInit {
     }
 
     addNewEncuesta() {
-        this.router.navigate(['encuestas/list/add']);
+        this.dialogRef = this.dialogService.open(EncuestaFormComponent, {
+            header: 'REGISTRAR NUEVO ALIADO',
+            width: '50%',
+            baseZIndex: 10000,
+            dismissableMask: true,
+        })
     }
 
     onGlobalFilterChange(event: any): void {
@@ -52,5 +66,22 @@ export class EncuestasListComponent implements OnInit {
         this.dt.currentPageReportTemplate =
             'Mostrando {first} a {last} de {totalRecords}';
         this.dt.rowsPerPageOptions = [10, 25, 50];
+    }
+
+    setMenuOptions(encuesta: Encuestas, $event: any) {
+        this.selectedRew = encuesta;
+
+        this.menuOptions = [
+            {
+                label: 'Editar',
+                icon: 'uil uil-edit',
+            }
+        ]
+        
+        this.menu.toggle($event)
+    }
+
+    onEdit(encuesta: Encuestas){
+        this.router.navigate([])
     }
 }

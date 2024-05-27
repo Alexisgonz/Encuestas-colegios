@@ -1,0 +1,21 @@
+<div class="flex justify-end space-x-2">
+    <button
+      *ngIf="isCancel"
+      pButton
+      pripple
+      class="{{ cancelClass }}"
+      icon="pi pi-times"
+      label="{{ cancelLabel }}"
+      (click)="onCancel()"
+    ></button>
+    <button
+      pButton
+      pripple
+      pButton
+      class="p-button-raised ml-2 {{ submitClass }}"
+      icon="{{ submitIcon }}"
+      label="{{ submitLabel }}"
+      (click)="onSubmit()"
+    ></button>
+  </div>
+  

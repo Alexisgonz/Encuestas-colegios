@@ -1,22 +1,48 @@
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppLayoutComponent } from "./layout/app.layout.component";
 
-@NgModule({
+const routes: Routes = [
+    {
+      path: '',
+      component: AppLayoutComponent,
+      children: [
+        {
+          path: 'encuestas',
+          loadChildren: () =>
+            import('./demo/components/modules/encuestas/encuestas.module').then(
+              (m) => m.EncuestasModule
+            ),
+        },
+        {
+          path: 'utilities',
+          loadChildren: () =>
+            import('./demo/components/utilities/utilities.module').then(
+              (m) => m.UtilitiesModule
+            ),
+        },
+      ],
+    },
+    {
+      path: 'auth',
+      loadChildren: () => import('./demo/components/auth/auth.module').then((m) => m.AuthModule),
+    },
+    {
+      path: '**',
+      redirectTo: '/notfound',
+    },
+  ];
+
+  @NgModule({
     imports: [
-        RouterModule.forRoot([
-            {
-                path: '', component: AppLayoutComponent,
-                children: [
-                    { path: 'encuestas', loadChildren: () => import('./demo/components/modules/encuestas/encuestas.module').then(m => m.EncuestasModule) },
-                    { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
-                ]
-            },
-            { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
-            { path: '**', redirectTo: '/notfound' },
-        ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
+      RouterModule.forRoot(routes, {
+        scrollPositionRestoration: 'enabled',
+        anchorScrolling: 'enabled',
+        onSameUrlNavigation: 'reload',
+      }),
     ],
-    exports: [RouterModule]
-})
+    exports: [RouterModule],
+    providers: [],
+  })
 export class AppRoutingModule {
 }

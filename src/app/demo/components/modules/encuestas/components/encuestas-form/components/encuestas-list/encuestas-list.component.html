@@ -9,10 +9,11 @@
         <div class="pt-12">
             <p-table #dt [value]="encuestas" class="p-datatable-hoverable-rows">
                 <ng-template pTemplate="caption">
-                    <colegios-table-caption
+                    <n-table-caption
                         (inputChange)="onGlobalFilterChange($event)"
                         (btnClick)="dt.exportCSV()"
-                    ></colegios-table-caption>
+                    >
+                    </n-table-caption>
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
@@ -46,17 +47,31 @@
                             ESTADO
                             <p-sortIcon field="isActivo"></p-sortIcon>
                         </th>
+                        <th style="text-align: center; width: 1%">
+                            <!-- Columna para el botón de opciones -->
+                        </th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-encuesta>
                     <tr>
-                      <td style="text-align: center">{{ encuesta.createdAt | date : 'dd/MM/yyyy' }}</td>
-                      <td>{{ encuesta.nombre }}</td>
-                      <td>{{ encuesta.descripcion }}</td>
-                      <td style="text-align: center">{{ encuesta.isActivo ? 'Activo' : 'Inactivo' }}</td>
+                        <td style="text-align: center">
+                            {{ encuesta.createdAt | date : "dd/MM/yyyy" }}
+                        </td>
+                        <td style="text-align: center">{{ encuesta.nombre }}</td>
+                        <td style="text-align: center">{{ encuesta.descripcion }}</td>
+                        <td style="text-align: center">
+                            {{ encuesta.isActivo ? "Activo" : "Inactivo" }}
+                        </td>
+                        <td class="text-center">
+                            <n-round-button-menu
+                                (click)="setMenuOptions(encuesta, $event)"
+                            >
+                            </n-round-button-menu>
+                        </td>
                     </tr>
-                  </ng-template>
+                </ng-template>
             </p-table>
         </div>
+        <p-menu #menu [popup]="true" [model]="menuOptions"></p-menu>
     </div>
 </div>
