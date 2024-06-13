@@ -1,84 +1,70 @@
-<div class="container">
-  <div class="flex">
-    <div class="w-4/5 p-3 pb-8 m-2 card">
-      <form
-        [formGroup]="formEncuesta"
-        class="grid gap-2"
-      >
-        <div class="flex w-full gap-4">
-          <div class="basis-1/2">
-            <div>
-              <label
-                for="nombre"
-                class="font-medium"
-                >NOMBRE</label
-              >
+<div>
+    <div class="tw-w-5/6 tw-p-3 tw-pb-8 tw-m-2">
+        <form [formGroup]="formEncuesta" class="grid gap-2">
+            <div class="flex w-full gap-4">
+                <div class="basis-1/2">
+                    <div>
+                        <label for="nombre" class="font-medium">NOMBRE</label>
+                    </div>
+                    <input
+                        formControlName="nombre"
+                        type="text"
+                        class="flex-1 w-4/5"
+                        pInputText
+                        id="nit"
+                        autofocus
+                    />
+                    <div>
+                        <small
+                            *ngIf="
+                                formEncuesta.get('nombre')?.touched &&
+                                formEncuesta.get('nombre')?.hasError('required')
+                            "
+                            class="text-red-500"
+                            >El nombre es requerida.</small
+                        >
+                    </div>
+                </div>
+                <div class="basis-1/2">
+                    <div>
+                        <label for="descripcion" class="font-medium"
+                            >DESCRIPCIÓN<em class="text-red-500">*</em></label
+                        >
+                    </div>
+                    <input
+                        formControlName="nombre"
+                        type="text"
+                        class="flex-1 w-4/5"
+                        pInputText
+                        id="nombre"
+                        autofocus
+                    />
+                </div>
             </div>
-            <input
-              formControlName="nombre"
-              type="text"
-              class="flex-1 w-4/5"
-              pInputText
-              id="nit"
-              autofocus
-            />
-            <div>
-              <small
-                *ngIf="
-                  formEncuesta.get('nombre')?.touched &&
-                  formEncuesta.get('nombre')?.hasError('required')
-                "
-                class="text-red-500"
-                >El nombre es requerida.</small
-              >
+            <div class="flex w-full gap-4 mt-2">
+                <div class="basis-1/2">
+                    <div>
+                        <label for="estado" class="font-medium"
+                            >ESTADO DE LA ENCUESTA</label
+                        >
+                    </div>
+                    <input
+                        formControlName="estado"
+                        type="text"
+                        class="flex-1 w-4/5"
+                        pInputText
+                        id="estado"
+                        autofocus
+                    />
+                </div>
             </div>
-          </div>
-          <div class="basis-1/2">
-            <div>
-              <label
-                for="descripcion"
-                class="font-medium"
-                >DESCRIPCIÓN<em class="text-red-500">*</em></label
-              >
-            </div>
-            <input
-              formControlName="nombre"
-              type="text"
-              class="flex-1 w-4/5"
-              pInputText
-              id="nombre"
-              autofocus
-            />
-          </div>
+        </form>
+        <div class="mt-8 mr-16">
+            <app-form-buttons-submit
+                (cancel)="onCancel()"
+                (submit)="onSubmit()"
+            >
+            </app-form-buttons-submit>
         </div>
-        <div class="flex w-full gap-4 mt-2">
-          <div class="basis-1/2">
-            <div>
-              <label
-                for="email"
-                class="font-medium"
-                >ESTADO DE LA ENCUESTA</label
-              >
-            </div>
-            <input
-              formControlName="estado"
-              type="text"
-              class="flex-1 w-4/5"
-              pInputText
-              id="estado"
-              autofocus
-            />
-          </div>
-        </div>
-        
-      </form>
-      <div class="mt-8 mr-16">
-        <app-form-buttons-submit
-          (cancel)="onCancel()"
-          (submit)="onSubmit()"
-        >
-        </app-form-buttons-submit>
-      </div>
     </div>
-  </div>
 </div>

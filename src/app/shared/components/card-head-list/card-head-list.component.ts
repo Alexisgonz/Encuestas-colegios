@@ -29,7 +29,7 @@ export type ColorPreviewSize = 'sm' | 'md' | 'lg' | 'xl';
                 pRipple
                 type="button"
                 icon="pi pi-plus"
-                class="bg-green-400"
+                class="bg-blue-400"
                 (click)="onClick($event)"
             ></button>
         </div>

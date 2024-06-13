@@ -1,50 +1,265 @@
+/* You can add global styles to this file, and also import other style files */
 @import "~node_modules/primeng/resources/primeng.min.css";
+// @import "~node_modules/primeflex/primeflex.css";
+@import "~primeng/resources/themes/saga-blue/theme.css";
+@import "~node_modules/primeicons/primeicons.css";
+@import "assets/layout/styles/layout/layout.scss";
+@import "assets/layout/styles/theme/theme-light/indigo/theme.scss";
+@import "primeicons/primeicons.css";
 
-
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
+@import "./badges.scss";
 
 @tailwind base;
 @tailwind utilities;
 
-$gutter: 1rem; //for primeflex grid system
-@import "assets/layout/styles/layout/layout.scss";
-@import "assets/layout/styles/theme/theme-light//indigo/theme.scss";
-
-/* PrimeNG */
-@import "../node_modules/primeng/resources/primeng.min.css";
-@import "../node_modules/primeflex/primeflex.scss";
-@import "../node_modules/primeicons/primeicons.css";
-
-
-
-/* Demos */
-@import "assets/demo/styles/flags/flags.css";
-@import "assets/demo/styles/badges.scss";
-@import "assets/demo/styles/code.scss";
-
-
-.p-button.options-menu {
-    height: 1.8em !important;
-    width: 1.8em !important;
-    padding: 0.5em !important;
+@layer base {
+  h1 {
+    @apply text-4xl font-bold mb-2;
   }
 
+  h2 {
+    @apply text-3xl font-bold mb-2;
+  }
 
-  .p-menuitem {
-    &.danger-text {
-      background-color: rgba($color: $errorColor, $alpha: 0.02);
-      .p-menuitem-text,
-      .p-menuitem-icon {
-        color: $errorColor !important;
-      }
-  
-      .p-menuitem-link {
-        &:hover {
-          background-color: rgba($color: $errorColor, $alpha: 0.04);
-        }
+  h3 {
+    @apply text-xl font-bold mb-2;
+  }
+
+  h4 {
+    @apply text-lg font-bold mb-2;
+  }
+
+  h5 {
+    @apply text-base font-bold mb-2;
+  }
+
+  h6 {
+    @apply text-sm font-bold mb-2;
+  }
+}
+
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-pill {
+  @apply rounded-full;
+}
+
+.badge-primary {
+  @apply bg-primary-100 text-primary-800;
+}
+
+.badge-secondary {
+  @apply bg-secondary-100 text-secondary-800;
+}
+
+.container- {
+  &md {
+    @apply max-w-screen-md mx-auto;
+  }
+
+  &lg {
+    @apply max-w-screen-lg mx-auto;
+  }
+
+  &xl {
+    @apply max-w-screen-xl mx-auto;
+  }
+
+  &2xl {
+    @apply max-w-screen-2xl mx-auto;
+  }
+}
+
+.p-colorpicker-preview {
+  @apply w-11 h-11 rounded-full;
+}
+
+textarea,
+input,
+select,
+p-dropdown {
+  &.ng-invalid.ng-touched {
+    border-color: $errorColor;
+    .p-dropdown {
+      border-color: $errorColor;
+    }
+  }
+}
+
+/** Menu Options */
+
+// Cambia el tamaño de los botones de opciones
+// para que no ocupen tanto espacio en cada fila
+.p-button.options-menu {
+  height: 1.8em !important;
+  width: 1.8em !important;
+  padding: 0.5em !important;
+}
+
+// Aplicando la clase danger-text a un elemento de un menú
+// le cambia el color de fondo y el color de texto
+.p-menuitem {
+  &.danger-text {
+    background-color: rgba($color: $errorColor, $alpha: 0.02);
+    .p-menuitem-text,
+    .p-menuitem-icon {
+      color: $errorColor !important;
+    }
+
+    .p-menuitem-link {
+      &:hover {
+        background-color: rgba($color: $errorColor, $alpha: 0.04);
       }
     }
   }
+}
+
+.uil.icon {
+  font-size: 1.34em !important;
+  top: 34% !important;
+}
+
+.p-sidebar-header {
+  @apply bg-gray-100 text-center;
+}
+
+// Estados de los informes
+.informe_aprobado {
+  background: none !important;
+  color: black !important;
+  font-weight: 400 !important;
+}
+
+.informe_autorizado {
+  background: rgb(118, 156, 89) !important;
+}
+.informe_entregado {
+  background: rgb(6, 59, 173) !important;
+}
+
+.informe_rechazado {
+  background: red !important;
+}
+
+.informe_No_requiere {
+  background: rgb(227, 68, 98) !important;
+}
+.informe_En_Autorización {
+  background: rgb(89, 99, 49) !important;
+}
+
+.informe_pendiente {
+  background: #ffa500 !important;
+}
+
+.comunicacion_si {
+  background: rgb(6, 59, 173) !important;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.comunicacion_no {
+  background: rgb(227, 68, 98) !important; 
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  font-size: 0.7rem; 
+}
+
+.sidebar-tareas {
+  background: #d4f1ef !important;
+}
+
+.factura_pagada {
+  background: green !important;
+}
+
+.factura_pendiente {
+  background: #ffa500 !important;
+}
+
+.factura_rechazada {
+  background: red !important;
+}
+
+.cuenta_cobro_pagada {
+  background: green !important;
+}
+
+.cuenta_cobro_aprobada {
+  background: rgb(118, 156, 89) !important;
+}
+
+.cuenta_cobro_pendiente {
+  background: #ffa500 !important;
+}
+
+.cuenta_cobro_rechazada {
+  background: red !important;
+}
+.cuenta_cobro_vencida {
+  background: purple !important;
+}
+
+.viatico_No_requiere {
+  background: none !important;
+  color: black !important;
+  font-weight: 400 !important;
+}
+.viatico_No_asignados {
+  background: #ffa500 !important;
+}
+.viatico_Sin_facturar {
+  background: rgb(6, 59, 173) !important;
+}
+.viatico_Facturado {
+  background: #a6c21d !important;
+}
+.viatico_Pagado {
+  background: none !important;
+  color: black !important;
+  font-weight: 400 !important;
+}
+
+.task-calendar > .p-calendar {
+  @apply w-full;
+}
+
+.oferta_Registrada{
+  background: none !important;
+  color: black !important;
+  font-weight: 400 !important;
+}
+
+.oferta_En_seguimiento{
+  background: #ede214 !important;
+}
+
+.oferta_Aprobada{
+  background: #12b918 !important;
+}
+
+.oferta_No_Aprobada{
+  background: #d11622 !important;
+}
+
+.p-accordion-content {
+  background: #d4f1ef !important;
+}
+
+.p-accordion-header-text {
+  @apply font-semibold;
+}
+
+em {
+  @apply text-red-500 ml-2;
+}
+
 
 

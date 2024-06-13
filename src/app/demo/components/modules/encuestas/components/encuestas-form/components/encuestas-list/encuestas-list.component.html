@@ -1,13 +1,13 @@
 <div class="container">
     <div class="pb-8 card">
         <app-card-head-list
-            [title]="'Encuestas-colegios'"
+            [title]="'Encuestas para colegios'"
             [icon]="'uil uil-user-md'"
             (btnClick)="addNewEncuesta()"
         ></app-card-head-list>
 
         <div class="pt-12">
-            <p-table #dt [value]="encuestas" class="p-datatable-hoverable-rows">
+            <p-table #dt [value]="encuestas" class="p-datatable-hoverable-rows" >
                 <ng-template pTemplate="caption">
                     <n-table-caption
                         (inputChange)="onGlobalFilterChange($event)"
@@ -57,8 +57,12 @@
                         <td style="text-align: center">
                             {{ encuesta.createdAt | date : "dd/MM/yyyy" }}
                         </td>
-                        <td style="text-align: center">{{ encuesta.nombre }}</td>
-                        <td style="text-align: center">{{ encuesta.descripcion }}</td>
+                        <td style="text-align: center">
+                            {{ encuesta.nombre }}
+                        </td>
+                        <td style="text-align: center">
+                            {{ encuesta.descripcion }}
+                        </td>
                         <td style="text-align: center">
                             {{ encuesta.isActivo ? "Activo" : "Inactivo" }}
                         </td>

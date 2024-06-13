@@ -13,6 +13,7 @@ import { MenuModule } from 'primeng/menu';
 import { FormButtonsSubmitComponent } from 'src/app/shared/components/form-buttons-submit/form-buttons-submit.component';
 import { DialogService } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
 
 const routes: Routes = [
     {
@@ -28,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [EncuestaFormComponent, EncuestasListComponent, ],
+    declarations: [EncuestaFormComponent, EncuestasListComponent ],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
@@ -42,6 +43,7 @@ const routes: Routes = [
         FormButtonsSubmitComponent,
         InputTextModule,
         FormsModule,
+        CalendarModule
     ],
     providers: [DialogService],
 })

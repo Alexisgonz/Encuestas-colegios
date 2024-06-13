@@ -16,20 +16,21 @@ export class EncuestasListComponent implements OnInit {
     @ViewChild('dt', { static: true }) dt!: Table;
     encuestas: Encuestas[] = [];
     menuOptions: MenuItem[] = [];
-    selectedRew!: Encuestas | undefined
+    selectedRew!: Encuestas | undefined;
     dialogRef: DynamicDialogRef | undefined;
-    @ViewChild('menu', { static: true}) menu!: Menu;
+    @ViewChild('menu', { static: true }) menu!: Menu;
 
     constructor(
         private router: Router,
         private encuestasService: EncuestasService,
-        private dialogService: DialogService,
+        private dialogService: DialogService
     ) {}
 
     ngOnInit(): void {
         this.encuestasService.getEncuestas().subscribe((data: Encuestas[]) => {
             this.encuestas = data;
         });
+        this.configTable()
     }
 
     addNewEncuesta() {
@@ -38,25 +39,21 @@ export class EncuestasListComponent implements OnInit {
             width: '50%',
             baseZIndex: 10000,
             dismissableMask: true,
-        })
-    }
-
-    onGlobalFilterChange(event: any): void {
-        this.dt.filterGlobal(event.target.value, 'contains');
+        });
     }
 
     configTable(): void {
         this.dt.sortMode = 'multiple';
         this.dt.sortOrder = 1;
         this.dt.sortField = 'id';
-        this.dt.columns = [
-            { field: 'nombre', header: 'Nombre' },
-            { field: 'descripcion', header: 'Descripcion' },
-            { field: 'fechaCreado', header: 'Fecah de Creado' },
-        ];
+        this.dt.multiSortMeta = [{ field: 'nombre', order: -1 }];
         this.dt.responsive = true;
         this.dt.columnResizeMode = 'expand';
-        this.dt.globalFilterFields = ['nombre', 'descripcion', 'createdAt'];
+        this.dt.globalFilterFields = [
+            'nobre',
+            'descripcion',
+            'estado',
+        ];
         this.dt.reorderableColumns = true;
         this.dt.rowHover = true;
         this.dt.styleClass = 'p-datatable-striped p-datatable-gridlines';
@@ -68,6 +65,10 @@ export class EncuestasListComponent implements OnInit {
         this.dt.rowsPerPageOptions = [10, 25, 50];
     }
 
+    onGlobalFilterChange(event: any): void {
+        this.dt.filterGlobal(event.target.value, 'contains');
+    }
+
     setMenuOptions(encuesta: Encuestas, $event: any) {
         this.selectedRew = encuesta;
 
@@ -75,13 +76,13 @@ export class EncuestasListComponent implements OnInit {
             {
                 label: 'Editar',
                 icon: 'uil uil-edit',
-            }
-        ]
-        
-        this.menu.toggle($event)
+            },
+        ];
+
+        this.menu.toggle($event);
     }
 
-    onEdit(encuesta: Encuestas){
-        this.router.navigate([])
+    onEdit(encuesta: Encuestas) {
+        this.router.navigate([]);
     }
 }

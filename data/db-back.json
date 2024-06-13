@@ -1,0 +1,81 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "usuario": "John Doe",
+            "email": "john.due@gmail.com"
+        }
+    ],
+    "encuestas": [
+        {
+            "id": 1,
+            "createdAt": "2024-06-12T08:00:00Z",
+            "nombre": "Encuesta de Satisfacción",
+            "descripcion": "Encuesta para medir la satisfacción de los estudiantes",
+            "isActivo": true
+        },
+        {
+            "id": 2,
+            "createdAt": "2024-06-12T09:00:00Z",
+            "nombre": "Encuesta de Calidad",
+            "descripcion": "Encuesta para evaluar la calidad de la educación",
+            "isActivo": false
+        },
+        {
+            "id": 3,
+            "createdAt": "2024-06-12T10:00:00Z",
+            "nombre": "Encuesta de Infraestructura",
+            "descripcion": "Encuesta para evaluar la infraestructura del colegio",
+            "isActivo": true
+        },
+        {
+            "id": 4,
+            "createdAt": "2024-06-12T11:00:00Z",
+            "nombre": "Encuesta de Docentes",
+            "descripcion": "Encuesta para evaluar el desempeño de los docentes",
+            "isActivo": false
+        },
+        {
+            "id": 5,
+            "createdAt": "2024-06-12T12:00:00Z",
+            "nombre": "Encuesta de Actividades Extracurriculares",
+            "descripcion": "Encuesta para conocer la opinión sobre las actividades extracurriculares",
+            "isActivo": true
+        },
+        {
+            "id": 6,
+            "createdAt": "2024-06-12T13:00:00Z",
+            "nombre": "Encuesta de Seguridad",
+            "descripcion": "Encuesta para evaluar la seguridad en el colegio",
+            "isActivo": false
+        },
+        {
+            "id": 7,
+            "createdAt": "2024-06-12T14:00:00Z",
+            "nombre": "Encuesta de Alimentación",
+            "descripcion": "Encuesta para conocer la opinión sobre el servicio de alimentación",
+            "isActivo": true
+        },
+        {
+            "id": 8,
+            "createdAt": "2024-06-12T15:00:00Z",
+            "nombre": "Encuesta de Transporte",
+            "descripcion": "Encuesta para evaluar el servicio de transporte escolar",
+            "isActivo": false
+        },
+        {
+            "id": 9,
+            "createdAt": "2024-06-12T16:00:00Z",
+            "nombre": "Encuesta de Participación de Padres",
+            "descripcion": "Encuesta para evaluar la participación de los padres de familia",
+            "isActivo": true
+        },
+        {
+            "id": 10,
+            "createdAt": "2024-06-12T17:00:00Z",
+            "nombre": "Encuesta de Recursos Tecnológicos",
+            "descripcion": "Encuesta para evaluar los recursos tecnológicos disponibles en el colegio",
+            "isActivo": false
+        }
+    ]
+}

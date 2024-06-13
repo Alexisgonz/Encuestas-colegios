@@ -6,13 +6,14 @@ import {
     Input,
     Output,
 } from '@angular/core';
+import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { RadioButtonModule } from 'primeng/radiobutton';
 
 @Component({
     selector: 'n-table-caption',
     standalone: true,
-    imports: [CommonModule, InputTextModule, RadioButtonModule],
+    imports: [CommonModule, InputTextModule, RadioButtonModule, ButtonModule],
     template: `<div
         class="flex flex-wrap gap-2 align-items-center justify-between"
     >
@@ -29,7 +30,6 @@ import { RadioButtonModule } from 'primeng/radiobutton';
         </span>
 
         <button
-            *ngIf="btnExport"
             type="button"
             pButton
             pRipple
